@@ -10,7 +10,7 @@
         "contentFields": {
           "body": {
             "ar": "تم الإنشاء بواسطة بورلون، هذا هو خلفية معدلة، جميع حقوق الخلفية الأصلية تذهب إلى لاوين",
-            "en": "Created by Burlone, This is a modded backend, all main backend credits to lawin",
+            "en": "Modded by Aiu , This is a modded backend, all main backend credits to lawin & burlone",
             "de": "Erstellt von Burlone, dies ist ein modifiziertes Backend, alle Hauptcredits für das Backend gehen an Lawin",
             "es": "Creado por Burlone, este es un backend modificado, todos los créditos del backend principal van para Lawin",
             "es-419": "Creado por Burlone, este es un backend modificado, todos los créditos del backend principal van para Lawin",
@@ -28,40 +28,40 @@
             {
               "width": 1920,
               "height": 1080,
-              "url": "https://i.imgur.com/ImIwpRm.png"
+              "url": "https://i.imgur.com/seHy3Z6.png"
             }
           ],
-          "tabTitleOverride": "Reload Backend",
+          "tabTitleOverride": "Project Meteor",
           "tileImage": [
             {
               "width": 1024,
               "height": 512,
-              "url": "https://i.imgur.com/KaJkHgq.png"
+              "url": "https://i.imgur.com/3i4wPbj.png"
             }
           ],
           "title": {
-            "ar": "مرحبًا بك في Reload!",
-            "en": "Welcome to Reload!",
-            "de": "Willkommen bei Reload!",
-            "es": "¡Bienvenidos a Reload!",
-            "es-419": "¡Bienvenidos a Reload!",
-            "fr": "Bienvenue sur Reload !",
-            "it": "Benvenuto in Reload!",
-            "ja": "Reloadへようこそ！",
-            "ko": "Reload에 오신 것을 환영합니다!",
-            "pl": "Witaj w Reloadze!",
-            "pt-BR": "Bem-vindo ao Reload!",
-            "ru": "Добро пожаловать в Reload!",
-            "tr": "Reload'a Hoş Geldiniz!"
+            "ar": "مرحبًا بك في Meteor!",
+            "en": "Welcome to Meteor!",
+            "de": "Willkommen bei Meteor!",
+            "es": "¡Bienvenidos a Meteor!",
+            "es-419": "¡Bienvenidos a Meteor!",
+            "fr": "Bienvenue sur Meteor !",
+            "it": "Benvenuto in Meteor!",
+            "ja": "Meteorへようこそ！",
+            "ko": "Meteor에 오신 것을 환영합니다!",
+            "pl": "Witaj w Meteorze!",
+            "pt-BR": "Bem-vindo ao Meteor!",
+            "ru": "Добро пожаловать в Meteor!",
+            "tr": "Meteor'a Hoş Geldiniz!"
           },
           "videoAutoplay": false,
           "videoLoop": false,
           "videoMute": false,
           "videoStreamingEnabled": false,
-          "websiteButtonText": "Reload Backend - Github",
-          "websiteURL": "https://github.com/Project-Reload/Reload-Backend"
+          "websiteButtonText": "Project Meteor - Github",
+          "websiteURL": "https://github.com/NA-JPBrew/Project-Meteor"
         },
-        "contentHash": "reloadbackendcontenthashtylawin",
+        "contentHash": "Meteorbackendcontenthashtylawin",
         "contentSchemaName": "MotdWebsiteNewsWithVideo"
         }
     ]

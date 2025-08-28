@@ -19,11 +19,11 @@ client.once("ready", () => {
             } else {
                 const embed = new MessageEmbed()
                     .setTitle("Backend Online")
-                    .setDescription("Reload Backend is now online")
+                    .setDescription("Project Meteor is now online")
                     .setColor("GREEN")
                     .setThumbnail("https://i.imgur.com/2RImwlb.png")
                     .setFooter({
-                        text: "Reload Backend",
+                        text: "Project Meteor",
                         iconURL: "https://i.imgur.com/2RImwlb.png",
                     })
                     .setTimestamp();
@@ -38,7 +38,7 @@ client.once("ready", () => {
     if (config.discord.bEnableInGamePlayerCount) {
         function updateBotStatus() {
             if (global.Clients && Array.isArray(global.Clients)) {
-                client.user.setActivity(`${global.Clients.length} player(s)`, { type: "WATCHING" });
+                client.user.setActivity(`☄ | ${global.Clients.length} 人がMeteorをプレイ中！`, { type: "WATCHING" });
             }
         }
 

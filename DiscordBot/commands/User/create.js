@@ -5,23 +5,23 @@ const functions = require("../../../structs/functions.js");
 module.exports = {
     commandInfo: {
         name: "create",
-        description: "Creates an account on Reload Backend.",
+        description: "Project Meteorにアカウントを登録します。",
         options: [
             {
-                name: "email",
-                description: "Your email.",
+                name: "id",
+                description: "半角英数字でIDを決めます。",
                 required: true,
                 type: 3
             },
             {
-                name: "username",
-                description: "Your username.",
+                name: "displayname",
+                description: "これがあなたのディスプレイネームになります。",
                 required: true,
                 type: 3
             },
             {
                 name: "password",
-                description: "Your password.",
+                description: "これがあなたのパスワードになります。 注意:パスワードは他のサイトで利用しているものにしないでください。",
                 required: true,
                 type: 3
             }
@@ -33,11 +33,11 @@ module.exports = {
         const { options } = interaction;
 
         const discordId = interaction.user.id;
-        const email = options.get("email").value;
+        const email = `${options.get("id").value}@meteor.dev`;
         const username = options.get("username").value;
         const password = options.get("password").value;
 
-        const plainEmail = options.get('email').value;
+        const plainEmail = `${options.get("id").value}@meteor.dev`;
         const plainUsername = options.get('username').value;
 
         const existingEmail = await User.findOne({ email: plainEmail });
@@ -48,22 +48,22 @@ module.exports = {
             return interaction.editReply({ content: "You did not provide a valid email address!", ephemeral: true });
         }
         if (existingEmail) {
-            return interaction.editReply({ content: "Email is already in use, please choose another one.", ephemeral: true });
+            return interaction.editReply({ content: "メールアドレスが被っています。", ephemeral: true });
         }
         if (existingUser) {
-            return interaction.editReply({ content: "Username already exists. Please choose a different one.", ephemeral: true });
+            return interaction.editReply({ content: "ユーザーネームが被っています。", ephemeral: true });
         }
         if (username.length >= 25) {
-            return interaction.editReply({ content: "Your username must be less than 25 characters long.", ephemeral: true });
+            return interaction.editReply({ content: "ユーザーネームは25文字以下でしか登録できません。", ephemeral: true });
         }
         if (username.length < 3) {
-            return interaction.editReply({ content: "Your username must be at least 3 characters long.", ephemeral: true });
+            return interaction.editReply({ content: "ユーザーネームは3文字以上でしか登録できません。", ephemeral: true });
         }
         if (password.length >= 128) {
-            return interaction.editReply({ content: "Your password must be less than 128 characters long.", ephemeral: true });
+            return interaction.editReply({ content: "パスワードは128文字以下でしか登録できません。", ephemeral: true });
         }
         if (password.length < 4) {
-            return interaction.editReply({ content: "Your password must be at least 4 characters long.", ephemeral: true });
+            return interaction.editReply({ content: "パスワードは4文字以上長い必要があります。", ephemeral: true });
         }
 
         await functions.registerUser(discordId, username, email, password).then(resp => {
@@ -71,25 +71,25 @@ module.exports = {
             .setColor(resp.status >= 400 ? "#ff0000" : "#56ff00")
             .setThumbnail(interaction.user.avatarURL({ format: 'png', dynamic: true, size: 256 }))
             .addFields({
-                name: "Message",
-                value: "Successfully created an account.",
+                name: resp.status >= 400 ? "登録失敗" : "登録成功！",
+                value: resp.status >= 400 ? "登録に失敗しました。" : "登録に成功しました！",
             }, {
-                name: "Username",
+                name: "ユーザーネーム",
                 value: username,
             }, {
-                name: "Discord Tag",
+                name: "ディスコードID",
                 value: interaction.user.tag,
             })
             .setTimestamp()
             .setFooter({
-                text: "Reload Backend",
-                iconURL: "https://i.imgur.com/2RImwlb.png"
+                text: "Project Meteor",
+                iconURL: "https://i.imgur.com/IWI4pAz.png"
             })
 
             if (resp.status >= 400) return interaction.editReply({ embeds: [embed], ephemeral: true });
 
             (interaction.channel ? interaction.channel : interaction.user).send({ embeds: [embed] });
-            interaction.editReply({ content: "You successfully created an account!", ephemeral: true });
+            interaction.editReply({ content: resp.status >= 400 ? "登録に失敗しました。" : "登録に成功しました！", ephemeral: true });
         });
     }
 }

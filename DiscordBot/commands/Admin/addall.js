@@ -10,11 +10,11 @@ const config = require('../../../Config/config.json')
 module.exports = {
     commandInfo: {
         name: "addall",
-        description: "Allows you to give a user all cosmetics. Note: This will reset all your lockers to default",
+        description: "すべてのコスメティックアイテムをプレイヤーに付与します。 注意:このコマンドを実行するとロッカーがリセットされます",
         options: [
             {
                 name: "user",
-                description: "The user you want to give the cosmetic to",
+                description: "コスメティックアイテムを付与する対象のディスプレイネーム",
                 required: true,
                 type: 6
             }
@@ -57,7 +57,7 @@ module.exports = {
                 .setDescription("Successfully added all skins (Full Locker) to the selected account")
                 .setColor("GREEN")
                 .setFooter({
-                    text: "Reload Backend",
+                    text: "Project Meteor",
                     iconURL: "https://i.imgur.com/2RImwlb.png"
                 })
                 .setTimestamp();

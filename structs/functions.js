@@ -113,7 +113,7 @@ function getContentPages(req) {
         if (memory.build < 5.30) { 
             news.forEach(mode => {
                 contentpages[mode].news.messages[0].image = "https://cdn.discordapp.com/attachments/927739901540188200/930879507496308736/discord.png";
-                contentpages[mode].news.messages[1].image = "https://i.imgur.com/ImIwpRm.png";
+                contentpages[mode].news.messages[1].image = "https://i.imgur.com/seHy3Z6.png";
             });
         }
     } catch {}
@@ -349,12 +349,12 @@ async function registerUser(discordId, username, email, plainPassword) {
         return { message: "Your password must be at least 4 characters long.", status: 400 };
     }
 
-    const allowedCharacters = (" !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~").split("");
-    for (let character of username) {
-        if (!allowedCharacters.includes(character)) {
-            return { message: "Your username has special characters, please remove them and try again.", status: 400 };
-        }
-    }
+    //const allowedCharacters = (" !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~").split("");
+    //for (let character of username) {
+    //    if (!allowedCharacters.includes(character)) {
+    //        return { message: "Your username has special characters, please remove them and try again.", status: 400 };
+    //    }
+    //}
 
     const hashedPassword = await bcrypt.hash(plainPassword, 10);
 
